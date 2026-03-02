@@ -2,10 +2,10 @@ terraform {
   required_version = ">= 1.5.0"
 
   cloud {
-    organization = "YOUR_TFC_ORG"
+    organization = "EKS_Demo"
 
     workspaces {
-      name = "eks-workspace"
+      name = "Project5"
     }
   }
 
