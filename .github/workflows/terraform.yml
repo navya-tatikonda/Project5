@@ -40,7 +40,7 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      # 6️⃣ Terraform Plan
+      # 6️⃣ Terraform Plan 
       - name: Terraform Plan
         run: terraform plan
 
