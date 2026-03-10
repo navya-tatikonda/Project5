@@ -48,4 +48,4 @@ jobs:
       # 7️⃣ Terraform Apply (Only on Main Branch Push)
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform destroy -auto-approve
+        run: terraform apply -auto-approve

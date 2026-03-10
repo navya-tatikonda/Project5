@@ -5,8 +5,19 @@ module "eks" {
   cluster_name    = var.cluster_name
   cluster_version = "1.29"
 
-  subnet_ids = module.vpc.private_subnets
   vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
+
+  # Enable management of aws-auth ConfigMap
+  manage_aws_auth_configmap = true
+
+  aws_auth_users = [
+    {
+      userarn  = "arn:aws:iam::212282291465:user/github-terraform-user"
+      username = "github-terraform-user"
+      groups   = ["system:masters"]
+    }
+  ]
 
   eks_managed_node_groups = {
     default = {
