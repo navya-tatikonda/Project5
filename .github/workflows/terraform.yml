@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
   pull_request:
 
 jobs:
@@ -47,4 +48,4 @@ jobs:
       # 7️⃣ Terraform Apply (Only on Main Branch Push)
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
