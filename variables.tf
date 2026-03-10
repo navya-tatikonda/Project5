@@ -3,5 +3,5 @@ variable "region" {
 }
 
 variable "cluster_name" {
-  default = "poc-eks-cluster"
+  default = "poc-eks-cluster2"
 }
