@@ -8,17 +8,6 @@ module "eks" {
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
 
-  # Enable management of aws-auth ConfigMap
-  manage_aws_auth_configmap = true
-
-  aws_auth_users = [
-    {
-      userarn  = "arn:aws:iam::212282291465:user/github-terraform-user"
-      username = "github-terraform-user"
-      groups   = ["system:masters"]
-    }
-  ]
-
   eks_managed_node_groups = {
     default = {
       instance_types = ["t3.micro"]
@@ -28,7 +17,6 @@ module "eks" {
     }
   }
 }
-
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5.0"
